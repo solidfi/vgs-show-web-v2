@@ -1,0 +1,65 @@
+
+@font-face {
+    font-family: "Roboto";
+    src: url("./fonts/Roboto/Roboto-Regular.ttf") format("truetype");
+    font-weight: 400;
+    }
+
+    @font-face {
+    font-family: "Roboto";
+    src: url("./fonts/Roboto/Roboto-Medium.ttf") format("opentype");
+    font-weight: 500;
+    }
+
+    @font-face {
+    font-family: "Roboto";
+    src: url("./fonts/Roboto/Roboto-Bold.ttf") format("opentype");
+    font-weight: 700;
+}
+body {
+    font-family: "Roboto";
+}
+iframe {
+    height: 20px;
+}
+#result {
+    background-image: url('./images/card.svg');
+    min-height: 200px;
+    background-repeat: no-repeat;
+    width: 320px;
+    background-size: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+    padding: 10px;
+}
+#card-top, #card-bottom {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 15px;
+}
+#card-bottom p, #card-top p {
+    margin: 2px;
+    font-size: 11px;
+}
+.card-middle-half {
+    width: 50%;
+}
+.card-middle-half label {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 11px;
+    padding-bottom: 3px;
+}
+#card-number {
+    padding-top: 20px;
+}
+#card-middle {
+    display: flex;
+}
+#exp {
+    display: flex;
+}
+#exp-month {
+    width: 22px;
+}
