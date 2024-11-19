@@ -4,14 +4,11 @@
 
 <head>
     <link rel="stylesheet" href="./style.css" />
-    <script type="text/javascript" src="https://js.verygoodvault.com/vgs-show/2.0.2/show.js"></script>
+    <script type="text/javascript" src="https://js.verygoodvault.com/vgs-show/2.2.1/show.js" integrity="sha384-3qbYQie/bJEfQqq3px5LohJx5u+54dTKUNKCF0zkBT+vYXFbpkLeOuCCjzMasktv" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <div id="inputs">
-        <input id="VGS-Organization-ID" placeholder="VGS Organization ID" required />
-        <br />
-        <br />
         <input id="VGS-Vault-Id" placeholder="VGS Vault Id" required />
         <br />
         <br />
@@ -54,15 +51,14 @@
     </div>
     <script>
         function getCardSecrets() {
-            var orgId = document.getElementById('VGS-Organization-ID').value;
-            var vaultId = document.getElementById('VGS-Vault-Id').value;
-            var cardId = document.getElementById('card-id').value;
-            var showToken = document.getElementById('show-token').value;
+            const vaultId = document.getElementById('VGS-Vault-Id').value;
+            const cardId = document.getElementById('card-id').value;
+            const showToken = document.getElementById('show-token').value;
 
-            if (orgId !== '' && vaultId !== '' && cardId !== '' && showToken !== '') {
-                var show = window.VGSShow.create(vaultId);
-                var headers = { 'sd-show-token': showToken }
-
+            if (vaultId !== '' && cardId !== '' && showToken !== '') {
+                const show = window.VGSShow.create(vaultId).setEnvironment('sandbox');
+                const headers = { 'show-token': showToken }
+                const url = `/v2/issuing/card/${cardId}/show`;
                 /**
                  * card number
                  */
@@ -70,8 +66,8 @@
                     name: 'cardNoIframe',
                     method: 'GET',
                     headers,
-                    path: '/v2/card/' + cardId + '/show',
-                    jsonPathSelector: 'cardNumber',
+                    path: url,
+                    jsonPathSelector: 'card_number',
                     serializers: [show.SERIALIZERS.replace('(\\d{4})(\\d{4})(\\d{4})(\\d{4})', '$1 $2 $3 $4')],
                 });
                 cardNoiframe.render('#card-number', { color: 'white', fontSize: '14px', display: 'block', height: '16px', overflow: 'hidden' });
@@ -83,7 +79,7 @@
                     name: 'cvvIframe',
                     method: 'GET',
                     headers,
-                    path: '/v1/card/' + cardId + '/show',
+                    path: url,
                     jsonPathSelector: 'cvv'
                 });
                 cvvIframe.render('#cvv', { color: 'white', fontSize: '16px', display: 'block', height: '16px', overflow: 'hidden' });
@@ -95,8 +91,8 @@
                     name: 'expiryMonthIframe',
                     method: 'GET',
                     headers,
-                    path: '/v2/card/' + cardId + '/show',
-                    jsonPathSelector: 'expiryMonth'
+                    path: url,
+                    jsonPathSelector: 'expiry_month'
                 });
                 expiryMonthIframe.render('#exp-month', { color: 'white', fontSize: '16px', display: 'block', height: '16px', overflow: 'hidden' });
 
@@ -107,8 +103,8 @@
                     name: 'expiryYearIframe',
                     method: 'GET',
                     headers,
-                    path: '/v1/card/' + cardId + '/show',
-                    jsonPathSelector: 'expiryYear'
+                    path: url,
+                    jsonPathSelector: 'expiry_year'
                 });
                 expiryYearIframe.render('#exp-year', { color: 'white', fontSize: '16px', display: 'block', height: '16px', overflow: 'hidden' });
 
