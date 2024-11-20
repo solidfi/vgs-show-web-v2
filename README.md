@@ -19,9 +19,13 @@ or run the html files under a local webserver(wamp, lamp, xampp...), openning th
 ## Parameters
 | Parameters          | Description   |
 | -------------       | ------------- |
-| VGS-Organization-ID | vgs organization id |
 | VGS-Vault-ID        | vgs vault id |
 | card-Id             | solid card id |
 | show-token          | Show token you can get it from api |
 
-Note: The VGS Org and vault ID's required for implementing the sample code can be requested via a Solid help desk ticket.
+Note: The VGS vault ID is required for implementing the sample code can be requested via a Solid help desk ticket.
+
+## React Native
+The web implementation can be used in react native webview also to run the VGS show in reactive native mobile apps.
+For reference please check below link:
+[VGS show - React native](https://snack.expo.dev/24Ua3dz6ug3PWm0EIROdO)
