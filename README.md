@@ -26,6 +26,6 @@ or run the html files under a local webserver(wamp, lamp, xampp...), openning th
 Note: The VGS vault ID is required for implementing the sample code can be requested via a Solid help desk ticket.
 
 ## React Native
-The web implementation can be used in react native webview also to run the VGS show in reactive native mobile apps.
+The web implementation can be used in react native webview also to use the VGS Show JavaScript SDK in react native mobile apps.
 For reference please check below link:
 [VGS show - React native](https://snack.expo.dev/24Ua3dz6ug3PWm0EIROdO)
